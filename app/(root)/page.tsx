@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-
+import { CategoryFilter } from "@/components/shared/category-filter";
+import { Collection } from "@/components/shared/collection";
+import { Search } from "@/components/shared/search";
 import { buttonVariants } from "@/components/ui/button";
 import { getAllEvents } from "@/lib/actions/event.actions";
 import { cn } from "@/lib/utils";
@@ -64,7 +66,20 @@ export default async function Home({ searchParams }: SearchParamProps) {
           Trust by <br /> Thousands of Events
         </h2>
 
+        <div className="flex w-full flex-col gap-5 md:flex-row">
+          <Search />
+          <CategoryFilter />
+        </div>
 
+        <Collection
+          data={events?.data}
+          emptyTitle="No events found."
+          emptyStateSubtext="Come back later."
+          collectionType="All_Events"
+          limit={6}
+          page={page}
+          total={events?.totalPages}
+        />
       </section>
     </>
   );
