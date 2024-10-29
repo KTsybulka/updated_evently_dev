@@ -1,5 +1,3 @@
-
-// allow imidualty improt all this thong without nassastery to hardcorndin each bulean points in Nave-item sahered componet
 export const headerLinks = [
   {
     label: "Home",
